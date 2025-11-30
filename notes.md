@@ -4,5 +4,4 @@
 - Installed with default settings
 - Accessed web UI at http://localhost:8000
 - Created admin account
-
-
+![Splunk Login](screenshots/splunk-login.png)
