@@ -13,7 +13,7 @@ Actions:
 - Observed Event IDs: 4625 (failed), 4624 (success).
 Files saved:
 - logs/windows/Security.evtx
-Screenshots:
-- screenshots/XX-event-viewer.png
 
+![Runas Generate Failed Logons](screenshots/runas-failed-logon.png)
 ![Events Viewer 4625](screenshots/event-viewer-4625.png)
+
