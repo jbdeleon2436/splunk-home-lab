@@ -11,6 +11,7 @@
 Actions:
 - Generated failed logins using lock-screen and runas.
 - Observed Event IDs: 4625 (failed), 4624 (success).
+
 Files saved:
 - logs/windows/Security.evtx
 
@@ -21,9 +22,11 @@ Files saved:
 Actions:
 - Started SSH service and generated failed SSH login attempts from Windows.
 - Generated failed sudo attempts locally.
+
 Files saved:
 - logs/linux/ssh_logs.txt
 - logs/linux/sudo_logs.txt
+
 Commands used:
 - sudo systemctl start ssh
 - sudo journalctl -u ssh -f
