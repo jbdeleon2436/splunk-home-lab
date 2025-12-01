@@ -29,8 +29,8 @@ Commands used:
 - sudo journalctl -u ssh -f
 - nmap -sS <windows-ip>
 
-![](screenshots/windows-failed-ssh.png)
 ![](screenshots/kali-failed-sudo.png)
+![](screenshots/windows-failed-ssh.png)
 
 - Kali SSH Logs
 
