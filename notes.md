@@ -17,3 +17,20 @@ Files saved:
 ![Runas Generate Failed Logons](screenshots/runas-failed-logon.png)
 ![Events Viewer 4625](screenshots/event-viewer-4625.png)
 
+## Step 3 - Kali Linux Auth Logs
+Actions:
+- Started SSH service and generated failed SSH login attempts from Windows.
+- Generated failed sudo attempts locally.
+Files saved:
+- logs/linux/ssh_logs.txt
+- logs/linux/sudo_logs.txt
+Commands used:
+- sudo systemctl start ssh
+- sudo journalctl -u ssh -f
+- nmap -sS <windows-ip>
+
+![](screenshots/windows-failed-ssh.png)
+![](screenshots/kali-failed-sudo.png)
+
+- Kali SSH Logs
+![](screenshots/kali-ssh-logs.png)
