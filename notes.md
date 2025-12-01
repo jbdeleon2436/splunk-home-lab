@@ -33,4 +33,5 @@ Commands used:
 ![](screenshots/kali-failed-sudo.png)
 
 - Kali SSH Logs
+
 ![](screenshots/kali-ssh-logs.png)
