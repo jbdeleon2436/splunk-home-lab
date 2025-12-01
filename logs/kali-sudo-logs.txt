@@ -1,0 +1,54 @@
+Nov 30 13:37:22 kali sudo[2187]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/apt update
+Nov 30 13:37:22 kali sudo[2187]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Nov 30 13:37:24 kali sudo[2187]: pam_unix(sudo:session): session closed for user root
+Nov 30 13:37:30 kali sudo[2329]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/apt install git -y
+Nov 30 13:37:30 kali sudo[2329]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Nov 30 13:37:44 kali sudo[2329]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:49:08 kali sudo[3927]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/auth.log
+Dec 01 07:49:08 kali sudo[3927]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 07:49:08 kali sudo[3927]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:51:25 kali sudo[5009]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -u ssh
+Dec 01 07:51:25 kali sudo[5009]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 07:51:25 kali sudo[5009]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:51:58 kali sudo[5282]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -f
+Dec 01 07:51:58 kali sudo[5282]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 07:52:07 kali sudo[5282]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:52:18 kali sudo[5452]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -xe
+Dec 01 07:52:18 kali sudo[5452]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 07:52:18 kali sudo[5452]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:53:54 kali sudo[6173]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/su
+Dec 01 07:53:54 kali sudo[6173]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 07:54:46 kali sudo[6714]:     root : TTY=pts/1 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/su
+Dec 01 07:54:46 kali sudo[6714]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=0)
+Dec 01 07:56:16 kali sudo[6714]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:56:16 kali sudo[6173]: pam_unix(sudo:session): session closed for user root
+Dec 01 07:56:46 kali sudo[7717]: pam_unix(sudo:auth): authentication failure; logname=jared uid=1000 euid=0 tty=/dev/pts/0 ruser=jared rhost=  user=jared
+Dec 01 07:56:55 kali sudo[7717]:    jared : 3 incorrect password attempts ; TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -u sudo -f
+Dec 01 07:57:03 kali sudo[7859]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -u sudo -f
+Dec 01 07:57:03 kali sudo[7859]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 07:58:27 kali sudo[7859]: pam_unix(sudo:session): session closed for user root
+Dec 01 09:30:38 kali sudo[23748]:    jared : TTY=pts/1 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/systemctl start ssh
+Dec 01 09:30:38 kali sudo[23748]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 09:30:38 kali sudo[23748]: pam_unix(sudo:session): session closed for user root
+Dec 01 09:30:47 kali sudo[23879]:    jared : TTY=pts/1 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/systemctl enable ssh
+Dec 01 09:30:47 kali sudo[23879]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 09:30:48 kali sudo[23879]: pam_unix(sudo:session): session closed for user root
+Dec 01 09:37:03 kali sudo[27118]: pam_unix(sudo:auth): authentication failure; logname=jared uid=1000 euid=0 tty=/dev/pts/1 ruser=jared rhost=  user=jared
+Dec 01 09:37:12 kali sudo[27118]:    jared : 3 incorrect password attempts ; TTY=pts/1 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/ls
+Dec 01 11:30:26 kali sudo[82201]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -u ssh -f
+Dec 01 11:30:26 kali sudo[82201]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 11:33:05 kali sudo[82201]: pam_unix(sudo:session): session closed for user root
+Dec 01 11:35:49 kali sudo[84867]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl
+Dec 01 11:35:49 kali sudo[84867]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 11:35:49 kali sudo[84867]: pam_unix(sudo:session): session closed for user root
+Dec 01 11:36:06 kali sudo[85039]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -n 200
+Dec 01 11:36:06 kali sudo[85039]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 11:36:43 kali sudo[85039]: pam_unix(sudo:session): session closed for user root
+Dec 01 12:07:13 kali sudo[99820]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -u ssh -f
+Dec 01 12:07:13 kali sudo[99820]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 12:07:27 kali sudo[99820]: pam_unix(sudo:session): session closed for user root
+Dec 01 12:08:16 kali sudo[100391]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl -u ssh
+Dec 01 12:08:16 kali sudo[100391]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)
+Dec 01 12:08:16 kali sudo[100391]: pam_unix(sudo:session): session closed for user root
+Dec 01 12:08:54 kali sudo[100775]:    jared : TTY=pts/0 ; PWD=/home/jared ; USER=root ; COMMAND=/usr/bin/journalctl
+Dec 01 12:08:54 kali sudo[100775]: pam_unix(sudo:session): session opened for user root(uid=0) by jared(uid=1000)

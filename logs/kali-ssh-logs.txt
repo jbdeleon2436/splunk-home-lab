@@ -1,0 +1,21 @@
+Dec 01 09:30:38 kali systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Dec 01 09:30:38 kali sshd[23782]: Server listening on 0.0.0.0 port 22.
+Dec 01 09:30:38 kali sshd[23782]: Server listening on :: port 22.
+Dec 01 09:30:38 kali systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+Dec 01 09:42:31 kali sshd[23782]: Timeout before authentication for connection from 192.168.50.131 to 192.168.50.166, pid = 28796
+Dec 01 09:52:08 kali sshd-session[34149]: Invalid user invaliduser from 192.168.50.131 port 49682
+Dec 01 09:52:19 kali sshd-session[34149]: pam_unix(sshd:auth): check pass; user unknown
+Dec 01 09:52:19 kali sshd-session[34149]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.50.131
+Dec 01 09:52:19 kali sshd-session[34149]: pam_winbind(sshd:auth): getting password (0x00000388)
+Dec 01 09:52:19 kali sshd-session[34149]: pam_winbind(sshd:auth): pam_get_item returned a password
+Dec 01 09:52:21 kali sshd-session[34149]: Failed password for invalid user invaliduser from 192.168.50.131 port 49682 ssh2
+Dec 01 09:52:23 kali sshd-session[34149]: pam_unix(sshd:auth): check pass; user unknown
+Dec 01 09:52:23 kali sshd-session[34149]: pam_winbind(sshd:auth): getting password (0x00000388)
+Dec 01 09:52:23 kali sshd-session[34149]: pam_winbind(sshd:auth): pam_get_item returned a password
+Dec 01 09:52:26 kali sshd-session[34149]: Failed password for invalid user invaliduser from 192.168.50.131 port 49682 ssh2
+Dec 01 09:52:33 kali sshd-session[34149]: pam_unix(sshd:auth): check pass; user unknown
+Dec 01 09:52:33 kali sshd-session[34149]: pam_winbind(sshd:auth): getting password (0x00000388)
+Dec 01 09:52:33 kali sshd-session[34149]: pam_winbind(sshd:auth): pam_get_item returned a password
+Dec 01 09:52:35 kali sshd-session[34149]: Failed password for invalid user invaliduser from 192.168.50.131 port 49682 ssh2
+Dec 01 09:52:35 kali sshd-session[34149]: Connection reset by invalid user invaliduser 192.168.50.131 port 49682 [preauth]
+Dec 01 09:52:35 kali sshd-session[34149]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.50.131
