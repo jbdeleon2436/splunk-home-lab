@@ -1,4 +1,5 @@
 # Splunk Home Lab
+This project demonstrates a full SIEM setup using Splunk to collect, analyze, and visualize security events generated inside a home lab environment.
 
 **Objective:** Simulate security events and analyze logs using Splunk.
 
