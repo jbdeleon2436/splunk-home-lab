@@ -10,7 +10,7 @@ Oracle Virtual Box:
 **Tools:** Splunk Enterprise, GitHub, Windows Event Viewer, Kali Linux tools
 
 **Steps Taken:**
-1. Installed Splunk on Windows 10 VM
+1. Installed Splunk on Windows 11 VM
 2. Configured log collection from Windows and Linux
 3. Generated events: failed login attempts, network scans
 4. Analyzed logs with SPL
