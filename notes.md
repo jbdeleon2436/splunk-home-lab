@@ -7,22 +7,11 @@
 
 ![Splunk Login](screenshots/splunk-login.png)
 
-## Step 2: Collect Logs
+## Step 2: Windows Security Logs
 Actions:
 - Generated failed logins using lock-screen and runas.
 - Observed Event IDs: 4625 (failed), 4624 (success).
-
-### Windows
 - Security event logs saved as `Security.evtx`
-- Generated failed and successful login events
-- Logs saved in `/logs/windows/`
-
-### Linux (Kali)
-- Auth logs monitored: `/var/log/auth.log`
-- Generated events:
-  - `sudo` commands
-  - nmap scan to Windows VM
-- Logs saved in `/logs/linux/`
 
 Files saved:
 - logs/windows/Security.evtx
@@ -34,6 +23,11 @@ Files saved:
 Actions:
 - Started SSH service and generated failed SSH login attempts from Windows.
 - Generated failed sudo attempts locally.
+- Auth logs monitored: `/var/log/auth.log`
+- Generated events:
+  - `sudo` commands
+  - nmap scan to Windows VM
+- Logs saved in `/logs/linux/`
 
 Files saved:
 - logs/linux/ssh_logs.txt
