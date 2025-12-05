@@ -1,6 +1,6 @@
 # Splunk Home Lab Documentation
 
-This documentation explains the setup, configuration, event generation, and log collection for a Splunk Home Lab built using Oracle VirtualBox, Windows 11, and Kali Linux.
+This documentation explains the setup, configuration, event generation, and log collection for a Splunk Home Lab using Oracle VirtualBox, Windows 11, and Kali Linux. It includes personal observations, troubleshooting steps, and lessons learned during the process.
 
 ---
 
@@ -10,36 +10,31 @@ This documentation explains the setup, configuration, event generation, and log 
 - **Windows 11 VM** — Splunk Enterprise + Universal Forwarder  
 - **Kali Linux VM** — Attacker machine (failed logins, sudo failures, SSH brute force, nmap scans)
 
-### Platform
-- **Oracle VirtualBox**
-
-### Objective
-Simulate security-related events on both systems and ingest the logs into Splunk for analysis.
-
----
-
-### VM Networking
-Initially both VMs received the **same DHCP IP**, causing conflicts.  
-**Fix:** Switched both VMs to **Bridged Adapter** mode.
+**Narrative / Challenges:**
+- Initially, both VMs received the same IP from DHCP, causing connectivity issues. Fixed by switching both VMs to **Bridged Adapter** mode.  
+- Windows 11 VM was lagging and crashing due to limited resources. Fixed by increasing CPU, RAM, enabling **3D acceleration**, setting graphics controller to **VBoxSVGA**, and installing **VirtualBox Guest Additions** for better video and memory performance.  
+- Kali Linux VM ran smoothly without issues.
 
 ---
 
-### Windows 11 VM Configuration
+### Windows 11 VM Settings
 
-Windows initially lagged; performance was improved by adjusting VM resource allocation and enabling graphics optimizations.
+**Hardware**
+- Base Memory: 4096 MB  
+- Processors: 4  
+- Boot Order: Floppy → Optical → Hard Disk  
+- Acceleration: Nested Paging, PAE/NX, Hyper-V Paravirtualization  
 
-**Settings Applied:**
-- Base Memory: **4096 MB**
-- Processors: **4**
-- Boot Order: Floppy → Optical → Hard Disk
-- Acceleration: Nested Paging, PAE/NX, Hyper-V Paravirtualization
-- **Display:**  
-  - 128 MB Video Memory  
-  - VBoxSVGA Graphics Controller  
-  - 3D Acceleration Enabled
-- **Storage:** 300 GB
-- **Network:** Bridged Adapter
-- **Guest Additions Installed** for better performance
+**Display**
+- 128 MB Video Memory  
+- VBoxSVGA Graphics Controller  
+- 3D Acceleration Enabled  
+
+**Storage**
+- 300 GB  
+
+**Network**
+- Bridged Adapter  
 
 **Screenshot Placeholder:**  
 ```
@@ -48,20 +43,23 @@ Windows initially lagged; performance was improved by adjusting VM resource allo
 
 ---
 
-### Kali Linux VM Configuration
+### Kali Linux VM Settings
 
-Kali Linux operated smoothly with no configuration issues.
+**Hardware**
+- Base Memory: 4096 MB  
+- Processors: 2  
+- Boot Order: Optical → Hard Disk  
+- Acceleration: Nested Paging, PAE/NX, KVM Paravirtualization  
 
-**Settings Applied:**
-- Base Memory: **4096 MB**
-- Processors: **2**
-- Boot Order: Optical → Hard Disk
-- Acceleration: Nested Paging, PAE/NX, KVM Paravirtualization
-- **Display:**  
-  - 128 MB Video Memory  
-  - VMSVGA Graphics Controller
-- **Storage:** 25 GB
-- **Network:** Bridged Adapter
+**Display**
+- 128 MB Video Memory  
+- VMSVGA Graphics Controller  
+
+**Storage**
+- 25 GB  
+
+**Network**
+- Bridged Adapter  
 
 **Screenshot Placeholder:**  
 ```
@@ -74,13 +72,16 @@ Kali Linux operated smoothly with no configuration issues.
 
 ### Splunk on Windows 11
 Actions:
-- Installed **Splunk Enterprise**
-- Installed **Splunk Universal Forwarder**
-- Enabled Windows Security logs for collection
-- Configured forwarding to Splunk Enterprise
-- Confirmed ingestion via Splunk Web
+- Installed **Splunk Enterprise**  
+- Installed **Splunk Universal Forwarder**  
+- Enabled Security Event Logs in Windows  
+- Configured log forwarding to Splunk Enterprise  
 
-**Screenshot Placeholder:**
+**Narrative / Notes:**
+- Initially had trouble with indexing, forwarder setup, and connecting Splunk Universal Forwarder. Solved by confirming forwarder status, checking ports, and verifying hostnames.  
+- Logs could be uploaded directly via Splunk Web UI as `.evtx` files or forwarded via Universal Forwarder for near real-time ingestion.
+
+**Screenshot Placeholder:**  
 ```
 ![Splunk Login](screenshots/splunk-login.png)
 ```
@@ -97,12 +98,16 @@ runas /user:wronguser cmd
 ```
 
 Generated Windows Event IDs:
-- **4625** — Failed logon
-- **4624** — Successful logon
+- **4625** — Failed login  
+- **4624** — Successful login  
 
 Logs exported as:
-- `Security.evtx`
-- `Security.xml`
+- `Security.evtx`  
+- `Security.xml` (for readability)  
+
+**Observations / Notes:**
+- Confirmed event IDs appeared in Event Viewer before exporting.  
+- These logs were later ingested into Splunk to validate dashboard displays.
 
 **Screenshot Placeholders:**
 ```
@@ -114,9 +119,9 @@ Logs exported as:
 
 ## Step 4: Generate Kali Linux Security Events
 
-### 4.1 View Linux Authentication Logs
+### 4.1 Monitoring Linux Authentication Logs
 
-Commands used:
+Commands:
 
 ```
 sudo journalctl -u ssh
@@ -135,13 +140,16 @@ Trigger events:
 sudo su
 ```
 
-Enter incorrect passwords multiple times.
+Enter wrong password multiple times.
 
-View logs:
+Check logs:
 
 ```
 sudo journalctl -u sudo -f
 ```
+
+**Observations / Notes:**
+- Failed sudo attempts generated authentication failure logs, which can be used to simulate privilege abuse detection in Splunk.
 
 **Screenshot Placeholder:**
 ```
@@ -165,9 +173,9 @@ ssh root@<kali-vm-ip>
 ```
 
 Enter wrong passwords to generate:
-- Failed password
-- Invalid user
-- Authentication failure
+- Invalid user logs  
+- Failed password logs  
+- Authentication failure logs  
 
 View in real time:
 
@@ -190,14 +198,16 @@ From Kali:
 nmap -sS <Windows-IP>
 ```
 
-This generates Windows firewall events.
-
-Check Windows Event Viewer for:
-- 5152  
-- 5156  
-- 5985  
-- 26001  
+Generates Windows firewall events. Check Event Viewer for:
+- **5152**  
+- **5156**  
+- **5985**  
+- **26001**  
 - Firewall blocks  
+
+**Observations / Notes:**
+- Nmap SYN scans trigger firewall alerts on Windows.  
+- Useful to simulate network reconnaissance detection in Splunk.
 
 **Screenshot Placeholder:**
 ```
@@ -221,8 +231,8 @@ sudo journalctl | grep sudo > sudo_logs.txt
 ```
 
 Saved in:
-- `logs/linux/ssh_logs.txt`
-- `logs/linux/sudo_logs.txt`
+- `logs/linux/ssh_logs.txt`  
+- `logs/linux/sudo_logs.txt`  
 
 **Screenshot Placeholder:**
 ```
@@ -233,9 +243,17 @@ Saved in:
 
 ## Step 6: Import Logs into Splunk
 
-- Uploaded Windows `.evtx` files
-- Uploaded Linux `.txt` logs
-- Verified indexing in Splunk
+- Upload Windows `.evtx` files and Linux `.txt` logs into Splunk.  
+- Confirm indexing using SPL queries:  
+
+```
+index=home_lab host="<hostname>" | stats count by sourcetype
+index=home_lab sourcetype=WinEventLog:Security | stats count by EventCode
+```
+
+**Observations / Notes:**
+- Initially had issues with WinEventLog formatting, but exporting as XML solved it.  
+- Linux logs indexed successfully after saving as `.txt`.
 
 **Screenshot Placeholder:**
 ```
@@ -244,21 +262,21 @@ Saved in:
 
 ---
 
-## Step 7: Next Steps (Future Work)
+## Step 7: Next Steps & Improvements
 
-- Build custom dashboards  
-- Create detection alerts  
-- Install **Sysmon** on Windows for advanced logging  
-- Add additional attacker scenarios  
-- Automate log generation scripts  
-- Create Splunk correlations for:
-  - SSH brute-force  
+- Build dashboards for:
+  - Failed logins  
   - Sudo abuse  
-  - Nmap scan detection  
+  - SSH brute-force attempts  
+  - Recon / nmap detection  
+- Create alerts for suspicious activity  
+- Install **Sysmon** on Windows for advanced logging  
+- Add more attacker scenarios for richer dataset  
+- Automate log generation scripts for continuous testing  
 
 ---
 
-## Screenshot Summary (Fill These In Later)
+## Screenshot Summary (Placeholders for Later)
 
 ```
 ![Windows VM Settings](screenshots/windows-vm-settings.png)
@@ -272,55 +290,3 @@ Saved in:
 ![Linux Logs Exported](screenshots/linux-logs-export.png)
 ![Splunk Data Upload](screenshots/splunk-upload.png)
 ```
-
----
-
-
-================================================
-
-## Step 1: Install Splunk Enterprise
-- OS: Windows 11 VM
-- Downloaded Splunk Enterprise from official website
-- Installed with default settings
-- Accessed web UI at http://localhost:8000
-- Created admin account
-
-![Splunk Login](screenshots/splunk-login.png)
-
-## Step 2: Windows Security Logs
-Actions:
-- Generated failed logins using lock-screen and runas.
-- Observed Event IDs: 4625 (failed), 4624 (success).
-- Security event logs saved as `Security.evtx`
-
-Files saved:
-- logs/windows/Security.evtx
-
-![Runas Generate Failed Logons](screenshots/runas-failed-logon.png)
-![Events Viewer 4625](screenshots/event-viewer-4625.png)
-
-## Step 3 - Kali Linux Auth Logs
-Actions:
-- Started SSH service and generated failed SSH login attempts from Windows.
-- Generated failed sudo attempts locally.
-- Auth logs monitored: `/var/log/auth.log`
-- Generated events:
-  - `sudo` commands
-  - nmap scan to Windows VM
-- Logs saved in `/logs/linux/`
-
-Files saved:
-- logs/linux/ssh_logs.txt
-- logs/linux/sudo_logs.txt
-
-Commands used:
-- sudo systemctl start ssh
-- sudo journalctl -u ssh -f
-- nmap -sS <windows-ip>
-
-![](screenshots/kali-failed-sudo.png)
-![](screenshots/windows-failed-ssh.png)
-
-- Kali SSH Logs
-
-![](screenshots/kali-ssh-logs.png)
