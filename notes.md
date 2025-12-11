@@ -38,7 +38,6 @@ This documentation explains the setup, configuration, event generation, and log 
 
 ![Windows VM Settings](screenshots/windows-vm-settings.png)
 
-
 ---
 
 ### Kali Linux VM Settings
@@ -61,7 +60,6 @@ This documentation explains the setup, configuration, event generation, and log 
 
 ![Kali VM Settings](screenshots/kali-vm-settings.png)
 
-
 ---
 
 ## Step 2: Install and Configure Splunk
@@ -78,7 +76,6 @@ Actions:
 - Logs could be uploaded directly via Splunk Web UI as `.evtx` files or forwarded via Universal Forwarder for near real-time ingestion.
 
 ![Splunk Login](screenshots/splunk-login.png)
-
 
 ---
 
@@ -105,7 +102,6 @@ Logs exported as:
 
 ![Runas Failed Logon](screenshots/runas-failed-logon.png)
 ![Event Viewer 4625](screenshots/event-viewer-4625.png)
-
 
 ---
 
@@ -143,10 +139,7 @@ sudo journalctl -u sudo -f
 **Observations / Notes:**
 - Failed sudo attempts generated authentication failure logs, which can be used to simulate privilege abuse detection in Splunk.
 
-**Screenshot Placeholder:**
-```
-![Kali Failed Sudo Logs](screenshots/kali-sudo-fail.png)
-```
+![Kali Failed Sudo Logs](screenshots/kali-failed-sudo.png)
 
 ---
 
@@ -175,10 +168,7 @@ View in real time:
 sudo journalctl -u ssh -f
 ```
 
-**Screenshot Placeholder:**
-```
 ![Kali SSH Logs](screenshots/kali-ssh-logs.png)
-```
 
 ---
 
@@ -201,10 +191,7 @@ Generates Windows firewall events. Check Event Viewer for:
 - Nmap SYN scans trigger firewall alerts on Windows.  
 - Useful to simulate network reconnaissance detection in Splunk.
 
-**Screenshot Placeholder:**
-```
-![Windows Firewall Events](screenshots/windows-firewall-events.png)
-```
+![Kali Nmap to Windows](screenshots/kali-nmap-scan.png)
 
 ---
 
@@ -226,11 +213,6 @@ Saved in:
 - `logs/linux/ssh_logs.txt`  
 - `logs/linux/sudo_logs.txt`  
 
-**Screenshot Placeholder:**
-```
-![Linux Logs Exported](screenshots/linux-logs-export.png)
-```
-
 ---
 
 ## Step 6: Import Logs into Splunk
@@ -247,10 +229,8 @@ index=home_lab sourcetype=WinEventLog:Security | stats count by EventCode
 - Initially had issues with WinEventLog formatting, but exporting as XML solved it.  
 - Linux logs indexed successfully after saving as `.txt`.
 
-**Screenshot Placeholder:**
-```
-![Splunk Data Upload](screenshots/splunk-upload.png)
-```
+![Splunk Data Upload](screenshots/uploaded-security-events.png)
+![Splunk Data Upload](screenshots/monitor-window-events.png)
 
 ---
 
