@@ -36,10 +36,8 @@ This documentation explains the setup, configuration, event generation, and log 
 **Network**
 - Bridged Adapter  
 
-**Screenshot Placeholder:**  
-```
 ![Windows VM Settings](screenshots/windows-vm-settings.png)
-```
+
 
 ---
 
@@ -61,10 +59,8 @@ This documentation explains the setup, configuration, event generation, and log 
 **Network**
 - Bridged Adapter  
 
-**Screenshot Placeholder:**  
-```
 ![Kali VM Settings](screenshots/kali-vm-settings.png)
-```
+
 
 ---
 
