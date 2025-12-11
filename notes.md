@@ -77,10 +77,8 @@ Actions:
 - Initially had trouble with indexing, forwarder setup, and connecting Splunk Universal Forwarder. Solved by confirming forwarder status, checking ports, and verifying hostnames.  
 - Logs could be uploaded directly via Splunk Web UI as `.evtx` files or forwarded via Universal Forwarder for near real-time ingestion.
 
-**Screenshot Placeholder:**  
-```
 ![Splunk Login](screenshots/splunk-login.png)
-```
+
 
 ---
 
