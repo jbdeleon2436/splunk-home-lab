@@ -103,11 +103,9 @@ Logs exported as:
 - Confirmed event IDs appeared in Event Viewer before exporting.  
 - These logs were later ingested into Splunk to validate dashboard displays.
 
-**Screenshot Placeholders:**
-```
 ![Runas Failed Logon](screenshots/runas-failed-logon.png)
-![Event Viewer 4625](screenshots/event-4625.png)
-```
+![Event Viewer 4625](screenshots/event-viewer-4625.png)
+
 
 ---
 
