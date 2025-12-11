@@ -169,6 +169,7 @@ sudo journalctl -u ssh -f
 ```
 
 ![Kali SSH Logs](screenshots/kali-ssh-logs.png)
+![Windows SSH Logs](screenshots/windows-failed-ssh.png)
 
 ---
 
