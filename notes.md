@@ -13,6 +13,8 @@ I created two VMs in **Oracle VirtualBox**:
 
 When I first created the VMs, both were assigned the **same IP via DHCP**, which caused network conflicts. I solved this by switching both VMs to **Bridged Adapter mode**, allowing them to have unique IPs while still connecting to the internet.
 
+---
+
 ### Windows 11 VM Configuration
 
 At first, Windows was lagging and sometimes crashed. I allocated more resources and optimized the settings:
