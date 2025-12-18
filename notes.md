@@ -77,6 +77,14 @@ Actions:
 
 ![Splunk Login](screenshots/splunk-login.png)
 
+![Splunk Add On](screenshots/splunk-add-on-dl.png)
+![Splunk Add On](screenshots/splunk-add-on-installed.png)
+![Splunk Add On](screenshots/splunk-add-on-verified.png)
+
+![Splunk Forwarder](screenshots/splunk-forwarder.png)
+![Splunk Forwarder](screenshots/splunk-forwarder-config.png)
+![Splunk Forwarder](screenshots/splunk-receiving.png)
+
 ---
 
 ## Step 3: Generating Windows Security Events
