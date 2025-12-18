@@ -74,13 +74,18 @@ Actions:
 - Installed **Splunk Universal Forwarder**  
 - Enabled Security Event Logs in Windows  
 - Configured log forwarding to Splunk Enterprise  
-
 ![Splunk Login](screenshots/splunk-login.png)
 
+---
+
+- Splunk Add On Installed and Configured
 ![Splunk Add On](screenshots/splunk-add-on-dl.png)
 ![Splunk Add On](screenshots/splunk-add-on-installed.png)
 ![Splunk Add On](screenshots/splunk-add-on-verified.png)
 
+---
+
+- Splunk Forwarder Installed and Configured
 ![Splunk Forwarder](screenshots/splunk-forwarder.png)
 ![Splunk Forwarder](screenshots/splunk-forwarder-config.png)
 ![Splunk Forwarder](screenshots/splunk-receiving.png)
