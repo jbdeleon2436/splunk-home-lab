@@ -240,6 +240,10 @@ index=home_lab sourcetype=WinEventLog:Security | stats count by EventCode
 ![Splunk Data Upload](screenshots/uploaded-security-events.png)
 ![Splunk Data Upload](screenshots/monitor-window-events.png)
 
+- Splunk displaying data after uploading the .xml or .evtx files from Windows for Splunk to process
+ 
+![Splunk Working](screenshots/splunk-working.png)
+
 ---
 
 ## Step 7: Next Steps & Improvements
